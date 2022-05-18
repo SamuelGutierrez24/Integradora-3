@@ -1,6 +1,8 @@
 package ui;
 
 import model.Sistem;
+import model.Soat;
+
 import java.util.Scanner;
    
 public class Main{
@@ -38,7 +40,7 @@ public class Main{
                     "Selec an option:\n" +
                     "(1) Register a Vehicle\n" +
                     "(2) Make report \n"+
-                    "(3) Para crear el círculo  \n"+
+                    "(3) Documents of a vehicle\n"+
                     "(4) Para mostrar las figuras\n" +  
                     "(0) Para salir"
                     );
@@ -58,6 +60,9 @@ public class Main{
                 break;
             case 2:
                 makeReport();
+                break;
+            case 3:
+                documentsOfVehicle();
                 break;
             
             default:
@@ -87,12 +92,7 @@ public class Main{
             cilinder = sc.nextDouble();
             sc.nextLine();
 
-            int kilometers;
-            System.out.println("Insert the kilometers of the vehicle(If the vehicle is new insert 0) :");
-            kilometers = sc.nextInt();
-            sc.nextLine();
-
-            int isNew;
+             int isNew;
             do{
                 System.out.println("The vehicle is new or used? (1) new and (2) Used :");
                 isNew = sc.nextInt();
@@ -104,6 +104,15 @@ public class Main{
 
             }while(isNew !=1 && isNew !=2);
 
+            int kilometers;
+            if(isNew == 1){
+                kilometers = 0;
+            }else{
+                System.out.println("Insert the kilometers of the vehicle(If the vehicle is new insert 0) :");
+                kilometers = sc.nextInt();
+                sc.nextLine();
+            }
+           
             String plate;
             if(isNew == 1){
                 plate = "";
@@ -165,7 +174,7 @@ public class Main{
 //.
             double properPrice;
             int properYear;
-            boolean property = false; 
+            boolean property = true; 
             if(isNew == 1){
                 property = false;
             }
@@ -174,10 +183,10 @@ public class Main{
                 properYear = -1;
             }else{
                 System.out.println("The car is used so... ");
-                System.out.println("Insert the price of the soat:");
+                System.out.println("Insert the price of the property card:");
                 properPrice=sc.nextDouble();
                 sc.nextLine();
-                System.out.println("Insert the year of the soat :");
+                System.out.println("Insert the year of the property card :");
                 properYear = sc.nextInt();
                 sc.nextLine();
             }
@@ -337,7 +346,7 @@ public class Main{
 
             int option;
             System.out.println("Make a report acording to:" +"\n" +
-            "(1) Vehicle tipe \n" +
+            "(1) Vehicle type \n" +
             "(2) Fuel type \n" +
             "(3) Used or new cars");
             option = sc.nextInt();
@@ -390,7 +399,7 @@ public class Main{
         public void reportFuelType(){
 
             int option;
-            System.out.println("Selec tipe of fuel: \n (1) Gas \n (2) Battery"); 
+            System.out.println("Selec type of fuel: \n (1) Gas \n (2) Battery"); 
             option = sc.nextInt();
             sc.nextLine();     
             if(option == 1 || option == 2){
@@ -420,7 +429,15 @@ public class Main{
                 }else{
                     System.out.println(sistem.showUsedVehicles());
                 }
+
             }
+        }
+
+        public void documentsOfVehicle(){
+            System.out.println("Insert the ID of the vehicle :");
+            int id = sc.nextInt();
+
+            System.out.println(sistem.documentsReport(id));
         }
 
 

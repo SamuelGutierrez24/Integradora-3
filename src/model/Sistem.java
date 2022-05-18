@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
         private ArrayList<Vehicle>vehicles;
 
+        public static final String ANSI_RED = "\u001B[31m";
+        public static final String ANSI_RESET = "\u001B[0m";
+
         public Sistem(String hola){
             this.hola = hola;
             vehicles = new ArrayList<Vehicle>();
@@ -64,7 +67,7 @@ import java.util.ArrayList;
            Motocycle aMoto = new Motocycle(base_price, mark, model, cilinderCapacity, kilometers, isUsed, licensePlate, documents, typeMoto, tankCapacity);
 
             vehicles.add(aMoto);
-            out = " The Moto was succesfully registered!";
+            out = "ID of the moto: " + vehicles.indexOf(aMoto) + " \n  The Moto was succesfully registered! \n";
 
             return out;
 
@@ -156,7 +159,8 @@ import java.util.ArrayList;
 
             GasolineCar aCar = new GasolineCar(base_price, mark, model, cilinderCapacity, kilometers, isUsed, licensePlate,documents , typeCar, numDoors, polarice, gas, tankCapacity);
             vehicles.add(aCar);
-             out = "The car was successfully registered!";
+            
+             out = " \u001B[31m ID of the car: \u001B[0m " + vehicles.indexOf(aCar) + " \n The car was successfully registered! \n";
             return out;
         }
 
@@ -217,7 +221,7 @@ import java.util.ArrayList;
 
             vehicles.add(aElectric);
 
-            out = "The Electric car was successfully registered!";
+            out = "ID of the car: " + vehicles.indexOf(aElectric) + " \n The Electric car was successfully registered! \n";
                 
             return out;
 
@@ -294,7 +298,7 @@ import java.util.ArrayList;
             
             vehicles.add(aHybridCar);
 
-            out = "The hybrid car was seccessfully registered";
+            out = "ID of the car: " + vehicles.indexOf(aHybridCar) + " \n The hybrid car was seccessfully registered \n";
 
             return out;
         }
@@ -387,6 +391,19 @@ import java.util.ArrayList;
                     out += vehicles.get(i).toString() + "\n";
                 }
             }
+            return out;
+        }
+
+        public String documentsReport(int index){
+
+            String out = "";
+
+            if(vehicles.get(index) == null){
+                out= "The IID insert is not found :(";
+            }else{
+                out = vehicles.get(index).reportDocu();
+            }
+
             return out;
         }
     }

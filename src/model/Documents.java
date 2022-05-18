@@ -18,7 +18,7 @@ public abstract class Documents {
 
         for(int i = 0;i<IMAGE;i++){
             for(int count = 0;count<IMAGE;count++){
-                int sumama= (int)(Math.random()*(10));
+                int sumama= (int)(Math.random()*(100)-1);
                 image[i][count] = sumama;
                 
             }
@@ -39,6 +39,7 @@ public abstract class Documents {
     public String toString(){
         return "Price : " + price +
         "\n Year : " + year +
-        "\n Image : None \n";
+        "\n Image : \n" + printNumeric()+ "\n" + decodification();
     }
+    public abstract String printNumeric();
 }

@@ -11,8 +11,31 @@ public class Soat extends Documents {
 
     @Override
     public String decodification(){
-        return "hola";
+        
+        String out="";
+        for (int columna=0; columna< 1; columna++ ) { 
+            for (int fila = 0; fila < image.length; fila++) {
+                out += image[fila][columna] + " ";
+            }
+        }
+        for(int columna = 1;columna<4;columna++){
+            out += image[3][columna] + " ";
+        }
+        return out;
     }
+   
+    @Override
+    public String printNumeric() {
+		
+        String print ="";
+		for (int i=0; i< image.length; i++ ) { // filas numbers.length
+			for (int j = 0; j < image[0].length; j++) { //columnas numbers[0].length
+				print += image[i][j] + " ";
+			}
+			print += "\n";
+		}
+		return print;
+	}
 
     @Override
     public int getYear() {
@@ -24,4 +47,14 @@ public class Soat extends Documents {
         return "SOAT \n" + super.toString() + " Coverage : " + coverage + "\n";
     }
 }
+
+/*String print ="";
+for (int i=0; i< numbers.length; i++ ) { // filas numbers.length
+    for (int j = 0; j < numbers[0].length; j++) { //columnas numbers[0].length
+        print += nubers[i][j] + " ";
+    }
+    print += "\n";
+}
+return print;
+}*/
 

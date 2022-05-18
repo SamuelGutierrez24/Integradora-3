@@ -42,20 +42,49 @@ public abstract class Vehicle {
             "\n kilometers : " + kilometers +
             "\n The car is :" + type +
             "\n License plate = " + licensePlate +
-            "\n Docuemnts list : " + "\n" + docuString() + "\n";
+            "\n\n Documents list : " + "\n\n" + docuString() + "\n";
         }
 
         public String docuString(){
             String out = "";
             for(int i = 0;i<3;i++){
-                if(documents[i] !=null)
+                
+                if(documents[i] !=null){
                 out += documents[i].toString();
+                }
             }
             return out;
         }
 
         public VehicleType getVehicleType(){
             return type;
+        }
+        public String reportDocu(){
+            String out = "DOCUMENTS REPORT";
+            
+            for(int i = 0;i<3;i++){
+               
+                if(documents[i] !=null){
+                    out += documents[i].toString();
+
+                     if(documents[i].getYear() != 2022){
+                        out += "STATUS :\u001B[31m Expired \u001B[0m";
+                    }else{
+                        out += "STATUS : In order";
+                    }
+                }else{
+                    if(i == 0){
+                        out += "\n SOAt STATUS: No registered \n";
+                    }
+                    if(i == 1){
+                        out += "TECNOMECHANIC STATUS: No registered \n";
+                    }
+                    if(i == 2){
+                        out += "\n PROPERTY CARD STATUS: No registered \n";
+                    }
+                }
+            }
+            return out;
         }
     
 }

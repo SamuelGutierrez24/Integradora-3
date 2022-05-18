@@ -9,7 +9,16 @@ public class PropertyCard extends Documents {
 
     @Override
     public String decodification(){
-        return "hola";
+        String out = "";
+        for (int i=3; i>= 0; i-- ) { // filas numbers.length
+			for (int j = 3; j >= 0; j--) { //columnas numbers[0].length
+                if(image[i][j]%2 == 0 ){
+                    out += image[i][j];
+                }
+			}
+			out += "\n";
+		}
+        return out;
     }
 
     @Override
@@ -20,4 +29,17 @@ public class PropertyCard extends Documents {
     public String toString(){
         return "PROPERTY CARD \n" + super.toString();
     }
+
+    @Override
+    public String printNumeric() {
+		
+        String print ="";
+		for (int i=0; i< image.length; i++ ) { // filas numbers.length
+			for (int j = 0; j < image[0].length; j++) { //columnas numbers[0].length
+				print += image[i][j] + " ";
+			}
+			print += "\n";
+		}
+		return print;
+	}
 }
