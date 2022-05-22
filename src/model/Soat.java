@@ -44,7 +44,7 @@ public class Soat extends Documents {
 
     @Override
     public String toString(){
-        return "SOAT \n" + super.toString() + " Coverage : " + coverage + "\n";
+        return "SOAT \n" + super.toString() + "\n Coverage : " + coverage + "\n";
     }
 }
 

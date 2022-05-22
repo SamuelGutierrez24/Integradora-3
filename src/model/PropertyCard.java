@@ -12,11 +12,11 @@ public class PropertyCard extends Documents {
         String out = "";
         for (int i=3; i>= 0; i-- ) { // filas numbers.length
 			for (int j = 3; j >= 0; j--) { //columnas numbers[0].length
-                if(image[i][j]%2 == 0 ){
-                    out += image[i][j];
+                if(((i+j)%2) == 0 ){
+                    out += image[i][j] + "  ";
                 }
 			}
-			out += "\n";
+			
 		}
         return out;
     }
@@ -27,7 +27,7 @@ public class PropertyCard extends Documents {
     }
     @Override
     public String toString(){
-        return "PROPERTY CARD \n" + super.toString();
+        return "\nPROPERTY CARD \n" + super.toString();
     }
 
     @Override

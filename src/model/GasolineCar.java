@@ -8,7 +8,7 @@ public class GasolineCar extends Car implements GasolineConsume {
 
     private double gasolineConsume;
 
-    public GasolineCar(double base_price,String mark,String model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,CarType carType, int numDoors, boolean polarice,GasolineType gasType, int tankCapacity){
+    public GasolineCar(double base_price,String mark,int model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,CarType carType, int numDoors, boolean polarice,GasolineType gasType, int tankCapacity){
 
         super(base_price, mark, model, cilinderCapacity, kilometers, type, licensePlate, documents, carType, numDoors, polarice);
         this.tankCapacity = tankCapacity;

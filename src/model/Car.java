@@ -9,7 +9,7 @@ public abstract class Car extends Vehicle {
 
     private boolean polarice;
 
-    public Car(double base_price,String mark,String model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,CarType carType, int numDoors, boolean polarice){
+    public Car(double base_price,String mark,int model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,CarType carType, int numDoors, boolean polarice){
 
         super(base_price, mark, model, cilinderCapacity, kilometers, type, licensePlate, documents);
         this.cartype = carType;

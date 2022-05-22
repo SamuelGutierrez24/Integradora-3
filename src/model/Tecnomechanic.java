@@ -41,7 +41,7 @@ public class Tecnomechanic extends Documents {
 
     @Override
     public String toString(){
-        return " \n TECNOMECHANIC \n" + super.toString() + "Car gases: " + carGases +"\n";
+        return " \n TECNOMECHANIC \n" + super.toString() + "\n Car gases: " + carGases +"\n\n";
     }
 
     @Override

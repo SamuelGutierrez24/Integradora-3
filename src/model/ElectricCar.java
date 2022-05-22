@@ -8,7 +8,7 @@ public class ElectricCar extends Car implements BatteryConsume {
 
     private double batteryConsume;
 
-    public ElectricCar(double base_price,String mark,String model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,CarType carType, int numDoors, boolean polarice,ChargerType charger, double batteryDuration ){
+    public ElectricCar(double base_price,String mark,int model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,CarType carType, int numDoors, boolean polarice,ChargerType charger, double batteryDuration ){
 
         super(base_price, mark, model, cilinderCapacity, kilometers, type, licensePlate, documents, carType, numDoors, polarice);
         this.charger = charger;

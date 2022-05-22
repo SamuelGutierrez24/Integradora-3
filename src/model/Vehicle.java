@@ -8,7 +8,7 @@ public abstract class Vehicle {
 
     protected String mark;
 
-    protected String model;
+    protected int model;
 
     protected double cilinderCapacity;
 
@@ -21,7 +21,7 @@ public abstract class Vehicle {
     protected Documents [] documents;
 
 
-        public Vehicle(double base_price,String mark,String model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents ){
+        public Vehicle(double base_price,String mark,int model, double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents ){
             this.base_price = base_price;
             this.mark = mark;
             this.model = model;
@@ -42,7 +42,7 @@ public abstract class Vehicle {
             "\n kilometers : " + kilometers +
             "\n The car is :" + type +
             "\n License plate = " + licensePlate +
-            "\n\n Documents list : " + "\n\n" + docuString() + "\n";
+            "\n\n Documents list : " + "\n\n" + docuString() + "\n \n";
         }
 
         public String docuString(){
@@ -57,7 +57,7 @@ public abstract class Vehicle {
         }
 
         public VehicleType getVehicleType(){
-            return type;
+            return this.type;
         }
         public String reportDocu(){
             String out = "DOCUMENTS REPORT";
@@ -86,5 +86,11 @@ public abstract class Vehicle {
             }
             return out;
         }
+
+        public int getModel(){
+            return this.model;
+        }
+
+       
     
 }

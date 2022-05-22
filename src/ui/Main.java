@@ -12,9 +12,13 @@ public class Main{
         private Scanner sc;
 
         public Main(){
+            sistem = new Sistem(InitModel.createVehicles());
+            sc = new Scanner(System.in);
+        } 
+        /* public Main(){
             sistem = new Sistem("hola");
             sc = new Scanner(System.in);
-        }
+        } */
 
         public static void main (String [] a){
 
@@ -41,7 +45,8 @@ public class Main{
                     "(1) Register a Vehicle\n" +
                     "(2) Make report \n"+
                     "(3) Documents of a vehicle\n"+
-                    "(4) Para mostrar las figuras\n" +  
+                    "(4) Show parking of old vehicles\n" + 
+                    "(5) Reports parking \n" +
                     "(0) Para salir"
                     );
             option= sc.nextInt();
@@ -64,6 +69,12 @@ public class Main{
             case 3:
                 documentsOfVehicle();
                 break;
+            case 4:
+                showParking();
+                break;
+            case 5:
+                reportParking();
+                break;
             
             default:
                 System.out.println("Error, opción no válida");
@@ -83,9 +94,10 @@ public class Main{
             System.out.println("Inser the brand of the vehicle :");
             brand=sc.nextLine();
 
-            String model;
+            int model;
             System.out.println("insert the model year of the vehicle :");
-            model = sc.nextLine();
+            model = sc.nextInt();
+            sc.nextLine();
 
             double cilinder;
             System.out.println("Insert the cilinder capacity of the vehicle :");
@@ -218,7 +230,7 @@ public class Main{
 
         }
        
-        public void registerMoto(double price, String brand, String model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
+        public void registerMoto(double price, String brand, int model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
 
             int motoType;
             System.out.println("Insert the moto type \n (1) Estandar \n (2) Sport \n (3) Scooter \n (4) Cross ");
@@ -235,7 +247,7 @@ public class Main{
 
         }
 
-        public void registerGasCar(double price, String brand, String model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
+        public void registerGasCar(double price, String brand, int model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
 
             int doors;
             System.out.println("Insert the number of doors :");
@@ -268,7 +280,7 @@ public class Main{
 
         }
 
-        public void registeredElectricCar(double price, String brand, String model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
+        public void registeredElectricCar(double price, String brand, int model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
 
             int doors;
             System.out.println("Insert the number of doors :");
@@ -300,7 +312,7 @@ public class Main{
 
         }
 
-        public void registeredhybridCar(double price, String brand, String model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
+        public void registeredhybridCar(double price, String brand, int model, double cilinder, int kilometers, int isNew, String plate,double soatPrice, int soatYear, double coverage,double tecnoPrice,int tecnoYear,double tecnoGases,double properPrice,int properYear){
 
             int doors;
             System.out.println("Insert the number of doors :");
@@ -438,6 +450,46 @@ public class Main{
             int id = sc.nextInt();
 
             System.out.println(sistem.documentsReport(id));
+        }
+        public void showParking(){
+            System.out.println(sistem.showParking());
+        }
+        public void reportParking(){
+            System.out.println("With what criteria?\n (1)Range of years \n (2) Newest and oldest vehicle \n (3)Busy porcentage  ");
+            int option = sc.nextInt();
+            sc.nextLine();
+
+            switch(option){
+                case 1 : 
+                    reportRange();
+                break;
+                case 2:
+                     reportNewOld(); 
+                break;
+                case 3 :
+                     reportPorcentage(); 
+                break;
+                case default:
+                    System.out.println("Invalid option.");
+                break;
+            }
+        }
+
+        public void reportRange(){
+            System.out.println("Insert the range of years starting in 2014:");
+            System.out.println("Firt the young year (En español es que me digite el año mas reciente del rango):");
+            int year1 = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Second the older year(En español es que me digite el año mas antiguo del rango): ");
+            int year2 = sc.nextInt();
+            sc.nextLine();
+            System.out.println(sistem.reportRange(year1,year2));
+        }
+        public void reportNewOld(){
+            System.out.println(sistem.reportNewParking());
+        }
+        public void reportPorcentage(){
+            System.out.println(sistem.reportPorcentage());
         }
 
 

@@ -39,7 +39,7 @@ public abstract class Documents {
     public String toString(){
         return "Price : " + price +
         "\n Year : " + year +
-        "\n Image : \n" + printNumeric()+ "\n" + decodification();
+        "\n Image : \n" + printNumeric()+ "\n" + "decodification: " + decodification();
     }
     public abstract String printNumeric();
 }

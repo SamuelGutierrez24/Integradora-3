@@ -8,7 +8,7 @@
 
         private double gasolineConsume;
 
-        public Motocycle(double base_price,String mark,String model, Double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,MotocycleType motoType, int tankCapacity){
+        public Motocycle(double base_price,String mark,int model, Double cilinderCapacity, int kilometers, VehicleType type, String licensePlate, Documents [] documents,MotocycleType motoType, int tankCapacity){
 
             super(base_price, mark, model, cilinderCapacity, kilometers, type, licensePlate, documents );
             this.tankCapacity= tankCapacity;
